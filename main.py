@@ -18,6 +18,7 @@ def process_image():
     reader = easyocr.Reader(['te','en'])
     text = reader.readtext(image_bytes) 
     txt = [item[1] for item in text if re.search(r'[\u0C00-\u0C7F]|[a-zA-Z+,]|[\d+\(\)\+\-\*/=]', str(item[1]))]
+    print(txt)
     return {"text": txt}
 
 if __name__ == '__main__':
